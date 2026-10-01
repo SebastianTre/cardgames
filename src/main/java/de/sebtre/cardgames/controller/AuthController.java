@@ -6,6 +6,7 @@ import de.sebtre.cardgames.dto.RegistrationRequest;
 import de.sebtre.cardgames.dto.UserResponse;
 import de.sebtre.cardgames.service.AppUserService;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -17,7 +18,7 @@ public class  AuthController {
     }
 
     @PostMapping("/register")
-    public UserResponse register(@RequestBody RegistrationRequest request) {
+    public UserResponse register(@Valid @RequestBody RegistrationRequest request) {
 
         return appUserService.registerUser(request);
     }
